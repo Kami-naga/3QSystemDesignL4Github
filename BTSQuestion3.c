@@ -32,14 +32,22 @@ int partition(int* a, int start, int end){
   for(int i = start+1;i<=end;i++){
     if(a[i] < anchor){
       p++;
-      a[i] = a[i] + a[p];
-      a[p] = a[i] - a[p];
-      a[i] = a[i] - a[p];
+      //swap 2 values(if i & p are the same, swallow copy will happen and will make lots of 0)
+      //a[i] = a[i] + a[p];
+      //a[p] = a[i] - a[p];
+      //a[i] = a[i] - a[p];
+      int tmp = a[i];
+      a[i] = a[p];
+      a[p] = tmp;
     }
   }
- a[start] = a[start] + a[p];
- a[p] = a[start] - a[p];
- a[start] = a[start] - a[p];
+//  a[start] = a[start] + a[p];
+//  a[p] = a[start] - a[p];
+//  a[start] = a[start] - a[p];
+//  if start & p are the same, swallow copy will happen and will make lots of 0
+  int tmp = a[start];
+  a[start] = a[p];
+  a[p] = tmp; 
   return p;
 }
 
