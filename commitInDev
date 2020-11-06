@@ -1,3 +1,7 @@
 commitInDev1
-commitInDev2
+if(true){
+    do something;
+}else{
+    do other things;
+}
 commitInDev3
