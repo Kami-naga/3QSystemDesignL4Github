@@ -4,4 +4,4 @@ if(true){
 }else{
     do other things;
 }
-commitInDev3
+commitInDev3(bug fixed!)
