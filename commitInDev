@@ -1,0 +1,7 @@
+commitInDev1
+if(true){
+    do something;
+}else{
+    do other things;
+}
+commitInDev3(bug fixed!)
