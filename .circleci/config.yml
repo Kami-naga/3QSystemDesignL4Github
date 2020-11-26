@@ -4,6 +4,19 @@ version: 2.1
 orbs:
   # Declare a dependency on the welcome-orb
   welcome: circleci/welcome-orb@0.4.1
+
+jobs:
+  build:
+    docker:
+      - image: quay.io/cybozu/ubuntu-dev:20.04
+    steps:
+      - checkout
+      - run: echo "Hello, world!"
+      - add_ssh_keys:
+          fingerprints:
+            - "b1:8f:cf:45:2b:b1:5a:ed:6a:34:6d:e8:c8:51:b8:3b"
+      - run: sh ./deploy.sh
+
 # Orchestrate or schedule a set of jobs
 workflows:
   # Name the workflow "welcome"
@@ -11,3 +24,7 @@ workflows:
     # Run the welcome/run job in its own container
     jobs:
       - welcome/run
+      - build
+      
+
+
